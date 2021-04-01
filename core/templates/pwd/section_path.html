@@ -1,0 +1,24 @@
+{% load static %}
+
+<!--=====================================
+    Breadcrumb
+    ======================================-->
+
+	<div class="ps-breadcrumb">
+
+        <div class="container">
+
+            <ul class="breadcrumb">
+
+                <li><a href="">Inicio</a></li>
+				<li>Bienvenido {{ request.user.firstname }}</li>
+            </ul>
+			{% if user.is_authenticated %}
+				<form action="" method="POST" style="float:right">
+					{% csrf_token %}
+					<button class="logout-button-pwd" type="nav-link" type="submit" value="Logout">Salir</button>
+				</form>
+            {% endif %}
+        </div>
+
+    </div>

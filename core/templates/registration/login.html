@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- CSS only -->
+<link rel="stylesheet" href="{% static 'css/register/register.css' %}">
+
+
+<div class="fixed-top">
+	{% include "pwd/section_path.html" %}
+</div>
+
+
+<!--=====================================
+	Register Form
+	======================================-->
+
+	<div class="container-register">
+		<form method="POST" id="form" class="form">
+			{% csrf_token %}
+			<h3>logo ...</h3>
+			<div class="col">
+				{% include "account/messages.html" %}
+			</div>
+						
+			   <div class="col">
+				<div class="form-control-register">
+					<!-- <label for="email"><strong>Email</strong></label> -->
+					<input type="email"  name="email"  placeholder="Email" value="{{fieldValues.email}}">
+					<div class="emailFeedBackArea invalid-feedback" style="display: none;"></div>
+					<small>error message</small>
+				</div>
+			   </div> 
+	   				   <div class="col">
+						   <div class="form-control-register">
+							   <!-- <label for="password_1"><strong>Password</strong></label> -->
+							   <input type="password" name="password1"  placeholder="Password" id="passwordField1">
+								<small>error message</small>
+						   </div>
+	   				   </div>
+	   				  
+						  <div class="col">
+							<div class="form-control-register">
+									<button type="submit" name="login">Login</button>
+							</div>
+
+							<div class="col">
+								<div class="form-control-register">
+									<hr>
+								</div>
+							</div>
+
+							
+
+						   <div class="form-control-register already-registered">
+							<strong><a href="{% url 'reset_password' %}">Forgot password?</a></strong>
+						</div>
+						
+						</div>
+						
+	   	 			</div>
+						<div class="form" style="margin-top: -74px;">
+							<div class="form-control-register already-registered">
+							   <strong><a href="{% url 'register' %}">Not regisetered?, click here</a></strong> 
+							<div class="form-control-register" style="margin-left:auto;margin-right:auto;">
+								<p style="font-size: 12px;">At the moment to login in FabriSeller you are <strong>accepting terms</strong> and <strong>condittions</strong></p>
+							</div>
+							</div>
+						</div>
+						
+			</form>
+<hr>
+			
+
+	</div>
+	<div class="items-bottom-register">
+				<ul class="links-register">
+					<li><a href="#">Terms and conditions</a></li>
+					<li><a href="#">Privacy policy</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<div class="inc-register">
+						<p>FabriSeller Corporation Inc.</p>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+{% endblock %}

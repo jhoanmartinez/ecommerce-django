@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% include "style_links/links.html"%}
+    <title>{%block title %} ComproMas {%endblock%}</title>
+</head>
+<body>
+	<div class="block-content-base">
+		<div class="block-content-elements">
+			<div class="block-content-sections">
+				{% block content %}
+
+				{% endblock %}
+				
+			</div>
+	    </div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+		<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<title>create review</title>
+	</head>
+	<body>
+		<form method="post">
+			{% csrf_token %}
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.review_content }}
+				</div>
+
+				<div class="col-md-6 mb-4">
+					{{ form.fk_id_user }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.input_one }}
+				</div>
+
+				<div class="col-md-6 mb-4">
+					{{ form.input_two }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.input_three }}
+				</div>
+				<div class="col-md-6 mb-4">
+					<button type="submit" name="button">Add review</button>
+				</div>
+
+			</div>
+
+
+		</form>
+	</body>
+</html>
+
+{% else %}
+<p>Wrong url</p>
+
+{% endif %}

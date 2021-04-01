@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        nav{
+            background: rgb(241, 241, 241);
+            height: 40px;
+        }
+
+        .container{
+            background: #fff;
+            margin-top: 40px;
+        }
+
+        .text, footer{
+            text-align: center;
+        }
+
+        .logo-email{
+            display:flex;
+            justify-content: center;
+        }
+
+        .button{
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+            font-family: "Work Sans", sans-serif;
+        }
+
+        .button a{
+            font-weight: 600;
+            cursor: pointer;
+            background: #FCB800;
+            border: none;
+            border-radius: 4px;
+            color: #111111;
+            display: block;
+            font-size:16px;
+            padding: 10px;
+            margin-top: 5px;
+            width: 15%;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button a:hover{
+            background: #111111;
+	        color: #fff;
+        }
+
+      
+
+        .logo-email, .text, .button{
+            margin-bottom: 30px;
+        }
+
+        .text h4{
+            margin-bottom: 18px;
+        }
+
+        footer{
+            background: rgb(241, 241, 241);
+            padding: 20px;
+            font-size: 13px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            overflow: hidden
+        }
+    </style>
+
+</head>
+<body>
+
+    <style></style>
+
+    <nav id="#top-nav-activate">
+        <div></div>
+    </nav>
+
+    <div class="container">
+        <div class="elements">
+            <div class="logo-email">
+                <h1>Fabri<span class="highlight">Seller <small>(logo here)</small></span></h1>
+            </div>
+            <div class="text">
+                <h4>Wellcome {{user.firstname}} {{user.lastname}} to the FabriSeller marketplace</h4>
+                <p>Click in the button to activate your account</p>
+            </div>
+            <div class="button">
+                <a href="{{activate_url}}">Activate account</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>FabriSeller &copy; 2021, all rights reserved</p>
+    </footer>
+</body>
+</html>

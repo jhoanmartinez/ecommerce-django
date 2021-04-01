@@ -1,0 +1,125 @@
+{% extends "base.html "%}
+{% load static %}
+
+{% block content %}
+{% include "header.html" %}
+{% include "pwd/section_path.html" %}
+{% if user.is_authenticated %}
+
+    <!--=====================================
+    My Account Content
+    ======================================-->
+    <div class="ps-vendor-dashboard pro">
+
+        <div class="container">
+
+            <div class="ps-section__header">
+
+
+
+
+                    <!--=====================================
+                    New Store
+                    ======================================-->
+                     <div class="ps-page__content text-center row" style="margin-top:0;">
+
+                        <div class="container">
+
+                            <div class="ps-section__header">
+
+                                <h1>New to MarketPlace?</h1>
+
+                                <h4>Join a marketplace where nearly 50 million buyers around <br> the world shop for unique items</h4>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-lg-4 col-12">
+
+                                    <div class="card">
+
+                                        <div class="card-body">
+
+                                            <img src="{% static 'img/shop-1.jpg' %}" class="img-fluid">
+
+                                        </div>
+
+                                        <div class="card-footer text-center">
+
+                                            <button class="btn btn-warning btn-lg"><span class="badge badge-secondary">1</span> Accept terms and conditions</button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-4 col-12">
+
+                                    <div class="card">
+
+                                        <div class="card-body">
+
+                                            <img src="{% static 'img/shop-2.jpg' %}" class="img-fluid">
+
+                                        </div>
+
+                                        <div class="card-footer text-center">
+
+                                            	<button class="btn btn-warning btn-lg" onclick="location.href='{% url 'create-store' %}'"><span class="badge badge-secondary">2</span> Create Store</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                 <div class="col-lg-4 col-12">
+
+                                    <div class="card">
+
+                                        <div class="card-body">
+
+                                            <img src="{% static 'img/shop-3.jpg' %}" class="img-fluid">
+
+                                        </div>
+
+                                        <div class="card-footer text-center">
+
+                                            <button class="btn btn-warning btn-lg" ><span class="badge badge-secondary">3</span> Create Product</button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% else %}
+
+<div class="container">
+	<h2>Please, register or login</h2>
+	<h3><a href="{% url 'register' %}">click here to register</a> or <a href="{% url 'login' %}">login</a></h3>
+</div>
+
+{% endif %}
+
+{% include "newsletter.html" %}
+{% include "footer.html" %}
+
+{% endblock %}

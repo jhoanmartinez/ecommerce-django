@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Reviews</title>
+	</head>
+	<body>
+		<nav>
+			{% if user.is_authenticated %}
+				<a href="{% url 'create-review' %}">Add review</a>
+				<a href="{% url 'logout' %}">Logout</a>
+			{% else %}
+			<a href="{% url 'login' %}">Login</a>
+			<a href="{% url 'register' %}">Register</a>
+			{% endif %}
+
+		</nav>
+		{% for k in object_list %}
+			<li>{{ k.fk_id_user.first_name }}</li>
+			<a href="{% url 'detail-review' k.id %}">Check review</a>
+			{{ k.review_content|safe|slice:":10" }}...<br>
+
+			{% if user.is_authenticated %}
+				<a href="{% url 'update-review' k.id %}">update review</a><br>
+				<a href="{% url 'delete-review' k.id%}" style="color:red;">Delete</a>
+			{% endif %}
+			<hr><br>
+		{% endfor %}
+	</body>
+</html>

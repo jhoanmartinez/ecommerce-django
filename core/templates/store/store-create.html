@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% include "pwd/section_path.html" %}
+{% if user.is_authenticated %}
+
+<!--=====================================
+My Account Content
+======================================-->
+<div class="ps-vendor-dashboard pro">
+
+	<div class="container">
+
+		<div class="ps-section__header">
+
+		<form method="post" style="margin-top:20px;justify-content: center;">
+			<h3 style="color:#333;margin-top:20px;">Create your Store and start to earn money while sleep</h3>
+
+			{% csrf_token %}
+
+
+			<!-- <div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.name_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					{{ form.email_store }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.country_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					{{ form.city_store }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.address_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					{{ form.phone_store }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.socialnetwork_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					{{ form.products_store }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					<label style="margin-bottom:10px;" >Logo store image <span><small> 300x300</small></span></label>
+					{{ form.logo_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					<label style="margin-bottom:10px;" Cover store image <span><small> 1349x290</small> This image will display in the homepage randomly</span></label>
+					{{ form.cover_store }}
+				</div>
+			</div>
+
+			<div class="form-row">
+   				<div class="col-md-6 mb-4">
+					{{ form.about_store }}
+				</div>
+				<div class="col-md-6 mb-4">
+					{{ form.abstract_store }}
+				</div>
+			</div>
+  -->
+<div>
+{{form}}
+</div><br>
+
+<!-- 
+<div>
+	<label for="fk_user_id">foreign key: </label>
+    <input id="fk_user_id" type="input" name="fk_user_id" value="{{ current_user }}">
+</div><br> -->
+
+			<div class="form-group row">
+			    <div class="col-sm-10">
+			      <button class="ps-btn" type="submit" name="button" style="margin-top:20px;">Create store</button>
+			    </div>
+			</div>
+
+		</form>
+
+</div>
+</div>
+
+
+{% else %}
+	<div class="container">
+		<h1>404 page</h1>
+	</div>
+{% endif %}
+{% endblock %}

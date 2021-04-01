@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>{{ object.review_content|safe }}</h1>
+		<small>By: {{ object.fk_id_user }}</small><br>
+		<small>date: {{ object.review_date }}</small>
+		<a href="{% url 'reviews' %}">Home</a>
+	</body>
+</html>

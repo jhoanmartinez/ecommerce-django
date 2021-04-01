@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "pwd/section_path.html" %}
+<div class="container">
+	<div class="stores">
+		{% for k in object_list %}
+			<li>{{ k.name_store }}</li>
+			<a href="{% url 'detail-review' k.id %}">Check store</a>
+			<br>
+
+				<a href="{% url 'update-review' k.id %}" style="color:blue;">update store</a><br>
+				<a href="{% url 'delete-review' k.id%}" style="color:red;">Delete store</a>
+			<hr><br>
+		{% endfor %}
+
+	</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- CSS only -->
+<link rel="stylesheet" href="{% static 'css/register/register.css' %}">
+
+
+<div class="fixed-top">
+	{% include "pwd/section_path.html" %}
+</div>
+
+
+<!--=====================================
+	Register Form
+	======================================-->
+
+	<div class="container-register">
+		<div id="form" class="form">
+			{% csrf_token %}
+			<h3>logo ...</h3>
+			<div class="col">
+				{% include "account/messages.html" %}
+			</div>	
+            <button class="form" style="margin-top: 20px;" 
+                    onclick="location.href='{% url 'login' %}'">
+                    Go to login</button>
+	   	 			</div>
+
+						<div class="form" style="margin-top: 20px;">
+							<div class="form-control-register already-registered">
+							   <strong><a href="{% url 'register' %}">Not regisetered?, click here</a></strong> 
+							<div class="form-control-register" style="margin-left:auto;margin-right:auto;">
+								<p style="font-size: 12px;">At the moment to login in FabriSeller you are <strong>accepting terms</strong> and <strong>condittions</strong></p>
+							</div>
+							</div>
+						</div>
+						
+			</form>
+<hr>
+			
+
+	</div>
+	<div class="items-bottom-register">
+				<ul class="links-register">
+					<li><a href="#">Terms and conditions</a></li>
+					<li><a href="#">Privacy policy</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+				<div class="inc-register">
+						<p>FabriSeller Corporation Inc.</p>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+{% endblock %}
