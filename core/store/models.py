@@ -44,7 +44,7 @@ class Product(models.Model):
     title = models.CharField(null=True, blank=True,max_length=255)
     author = models.CharField(null=True, blank=True,max_length=255, default='admin')
     description = models.TextField(null=True, blank=True)
-    image = models.ImageField(null=True, blank=True,upload_to='images/')
+    image = models.ImageField(null=False, blank=False,upload_to='images/', default='default.jpg')
     image_2 = models.ImageField(null=True, blank=True,upload_to='images/')
     image_3 = models.ImageField(null=True, blank=True,upload_to='images/')
     image_4 = models.ImageField(null=True, blank=True,upload_to='images/')
@@ -60,6 +60,10 @@ class Product(models.Model):
     updated = models.DateTimeField(null=True, blank=True,auto_now=True)
     objects = models.Manager()
     products = ProductManager()
+
+    @property
+    def price_less_disscount(self):
+        return (self.price*self.disccount_percentage) // 100
 
     class Meta:
         verbose_name_plural = 'Products'
