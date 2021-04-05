@@ -45,11 +45,12 @@ class Product(models.Model):
     author = models.CharField(null=True, blank=True,max_length=255, default='admin')
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=False, blank=False,upload_to='images/', default='default.jpg')
-    image_2 = models.ImageField(null=True, blank=True,upload_to='images/')
-    image_3 = models.ImageField(null=True, blank=True,upload_to='images/')
-    image_4 = models.ImageField(null=True, blank=True,upload_to='images/')
+    image_2 = models.ImageField(null=True, blank=True,upload_to='images/',  default='default.jpg')
+    image_3 = models.ImageField(null=True, blank=True,upload_to='images/',  default='default.jpg')
+    image_4 = models.ImageField(null=True, blank=True,upload_to='images/',  default='default.jpg')
     slug = models.SlugField(null=True, blank=True,max_length=255)
     price = models.IntegerField(null=True, blank=True)
+    brand = models.CharField(max_length=255, blank=True, null=True)
     sale_price = models.IntegerField(null=True, blank=True)
     disccount_percentage = models.IntegerField(null=True, blank=True)
     in_stock = models.BooleanField(null=True, blank=True,default=True)
@@ -63,7 +64,15 @@ class Product(models.Model):
 
     @property
     def price_less_disscount(self):
-        return (self.price*self.disccount_percentage) // 100
+        return (self.price*self.disccount_percentage) // 100 
+    
+    @property
+    def final_price_disscount(self):
+        return self.price-self.price_less_disscount
+    
+    @property
+    def sale_less_og_price(self):
+        return self.price-self.sale_price
 
     class Meta:
         verbose_name_plural = 'Products'

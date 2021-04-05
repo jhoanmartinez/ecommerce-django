@@ -21,4 +21,5 @@ def subcategories(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
-    return render (request,"product/detail.html")
+    context = {'product': product}
+    return render (request,"product/detail.html", context)
