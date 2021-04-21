@@ -9,15 +9,6 @@ def homepage(request):
                 'top_20_best_seller':products,}
     return render(request, 'homepage/homepage.html', context)
 
-def categories(request):
-    return{
-        'categories':Category.objects.all()
-    }
-
-def subcategories(request):
-    return{
-        'subcategories':SubCategory.objects.all()
-    }
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
