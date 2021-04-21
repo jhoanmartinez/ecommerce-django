@@ -116,13 +116,12 @@
 
                                     <div class="ps-product__rating">
 
-                                        
-
                                         <span>(1 review)</span>
 
                                     </div>
 
                                 </div>
+
                                 {% if product.disccount_percentage > 0 %}
                                     <h4 class="ps-product__price sale">${{product.final_price_disscount}}
                                         <del> ${{product.price}}</del><small> (-{{product.disccount_percentage}}%)</small>
@@ -133,6 +132,11 @@
                                 <h4 class="ps-product__price sale">${{product.sale_price}}
                                     <del> ${{product.price}}</del><small> <br><span style="color:black;"><strong>ahorra</strong></span> (-{{product.sale_less_og_price}})</small>
                                 </h4>
+                                {% endif %}
+
+                                {% if product.disccount_percentage is None and product.sale_price is None %}
+                                    <h4 class="ps-product__price sale">${{product.price}}
+                                    </h4>
                                 {% endif %}
 
 

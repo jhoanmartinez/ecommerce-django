@@ -96,7 +96,7 @@
 					Logo
 					======================================-->
 
-                	<a class="ps-logo" href="#">
+                	<a class="ps-logo" href="{% url 'store:homepage' %}">
                 		<img src="{% static 'img/template/logo_light.png' %}" alt="">
                 	</a>
 
@@ -119,11 +119,11 @@
 
 								{% for k in categories %}
 								<li>
-                                	<a href="#"><i class="icon-star"></i> {{k.name|title}} {{k.id}}</a>
+                                	<a href="{{ k.get_absolute_url }}"><i class="icon-star"></i> {{k.name|title}} {{k.id}}</a>
                                 </li>
 									{% for i in subcategories %}
 										{% if k.id == i.category_id %}
-											<p>{{ i.name|title }}</p>
+											<a href="{{ i.get_absolute_url }}">{{ i.name|title }}</a>
 										{% endif %}
 									{% endfor %}
 								{% endfor %}

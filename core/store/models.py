@@ -30,7 +30,7 @@ class SubCategory(models.Model):
         verbose_name_plural = 'subcategories'
 
     def get_absolute_url(self):
-        return reverse('store:sub_category_list', args=[self.slug])
+        return reverse('store:subcategory_list', args=[self.slug])
 
     def __str__(self):
         return str(self.name)
@@ -53,7 +53,7 @@ class Product(models.Model):
     brand = models.CharField(max_length=255, blank=True, null=True)
     sale_price = models.IntegerField(null=True, blank=True)
     disccount_percentage = models.IntegerField(null=True, blank=True)
-    in_stock = models.BooleanField(null=True, blank=True,default=True)
+    in_stock = models.IntegerField(null=True, blank=True,default="")
     is_active = models.BooleanField(null=True, blank=True,default=True)
     sales = models.IntegerField(null=True, blank=True, default=0)
     rating = models.FloatField(null=True, blank=True, default=4.5)
