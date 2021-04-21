@@ -27,8 +27,10 @@ def product_detail(request, slug):
 def category_list(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.objects.filter(category=category)
+    total = products.count()
     context = { 'category': category,
-                'products': products,}
+                'products': products,
+                'total': total}
     return render(request, "product/category.html", context)
 
 def subcategory_list(request, subcategory_slug):
