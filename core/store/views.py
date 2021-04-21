@@ -13,11 +13,11 @@ def homepage(request):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     context = {'product': product}
-    return render (request,"product/detail.html", context)
+    return render (request,"product/single.html", context)
 
 def category_list(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
-    products = Product.objects.filter(category=category)
+    products = Product.products.filter(category=category)
     total = products.count()
     context = { 'category': category,
                 'products': products,
@@ -26,7 +26,7 @@ def category_list(request, category_slug):
 
 def subcategory_list(request, subcategory_slug):
     subcategory = get_object_or_404(SubCategory, slug=subcategory_slug)
-    products = Product.objects.filter(subcategory=subcategory)
+    products = Product.products.filter(subcategory=subcategory)
     context = { 'subcategory': subcategory,
                 'products': products,}
     return render(request, "product/subcategory.html", context)

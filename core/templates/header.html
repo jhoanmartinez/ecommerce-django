@@ -337,18 +337,18 @@
 						<!--=====================================
 						Login and Register
 						======================================-->
-						{% if user.is_authenticated %}
+						<!-- {% if user.is_authenticated %} -->
                         <div class="ps-block--user-header">
                             <div class="ps-block__left">
                             	<i class="icon-user icon-user-logged"></i>
                             </div>
                             <div class="ps-block__right">
 								
-									<form action="{% url 'logout' %}" method="POST">
-										{% csrf_token %}
+									<form action="" method="POST">
+										<!-- {% csrf_token %} -->
 										<button class="logout-button" type="nav-link" type="submit" value="Logout">Logout</button>
 									</form>
-								{% else %}
+								<!-- {% else %} -->
 								<div class="ps-block--user-header">
 									<div class="ps-block__left">
 										<i class="icon-user"></i>
@@ -356,7 +356,7 @@
 								<div class="ps-block__right">
 								<a href="#">Entrar</a>
 								<a href="#">Registrate</a>
-								{% endif %}
+								<!-- {% endif %} -->
                             </div>
                         </div>
 
